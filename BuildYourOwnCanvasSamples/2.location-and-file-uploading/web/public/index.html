@@ -160,7 +160,7 @@
 
         // Fetch a SAS token from the server, think of it as a permission to upload a single file to Azure Storage.
         const { sasQuery, url: uploadURL } = await fetchJSON('/api/azurestorage/uploadsastoken');
-
+        console.log('Inside public/index.html');
         // Uploads the file to Azure Storage directly by using a fresh SAS token from the server.
         const pipeline = StorageURL.newPipeline(new AnonymousCredential());
         const blockBlobURL = new BlockBlobURL(`${uploadURL}?${sasQuery}`, pipeline);

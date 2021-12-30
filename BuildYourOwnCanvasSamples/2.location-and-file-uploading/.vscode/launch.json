@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "pwa-chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}",
+            "env": {
+                "AZURE_STORAGE_ACCOUNT_NAME":"analyticspathway",
+                "AZURE_STORAGE_ACCOUNT_KEY":"dogG/DpUnNB9kKbD0A9NDNY3fZjo61lcyUX66xpc7llVqgT0gs0X1/jcCcREx8ybSDPBaPfg1xP4XJrd6ok5uQ==",
+                "AZURE_STORAGE_CONTAINER_NAME":"userupload",
+                "BOT_ID":"396c7105-f7e5-4561-bebe-c7d33c2a4b10",
+                "BOT_TENANT_ID":"61e6eeb3-5fd7-4aaa-ae3c-61e8deb09b79",
+                "PROXY_BOT_URL":"http://localhost:3978"
+            },
+        }
+    ]
+}

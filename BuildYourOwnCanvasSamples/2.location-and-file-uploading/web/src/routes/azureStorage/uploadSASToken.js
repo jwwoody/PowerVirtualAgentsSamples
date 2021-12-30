@@ -24,7 +24,8 @@ module.exports = function (_, res) {
     pad(now.getUTCHours()),
     uuidV4()
   ].join('/');
-  console.log('Date?: ', blobName);
+  // const blobName = 'Picture';
+  console.log('blobName: ', blobName);
   const permissions = new BlobSASPermissions();
 
   // We only allow create permissions, so the user cannot use the URL to redownload the file to redistribute it.
@@ -41,16 +42,11 @@ module.exports = function (_, res) {
   );
   
     
-
+  url_to_use = `https://${AZURE_STORAGE_ACCOUNT_NAME}.blob.core.windows.net/${AZURE_STORAGE_CONTAINER_NAME}/${blobName}`;
   res.send({
-    sasQuery: '?' + sasQuery.toString(),
-    // sasQuery: '',
-    // url: `https://${AZURE_STORAGE_ACCOUNT_NAME}.blob.core.windows.net/${AZURE_STORAGE_CONTAINER_NAME}/${blobName}`
-    url: `https://${AZURE_STORAGE_ACCOUNT_NAME}.blob.core.windows.net/userupload`
-    // url: `https://analyticspathway.blob.core.windows.net/userupload?sp=racw&st=2021-12-28T22:47:08Z&se=2021-12-29T06:47:08Z&spr=https&sv=2020-08-04&sr=c&sig=ULTdq%2B0SwO95nG%2BWvs6AOR24X%2Bl5AszurOlRVKdh0B4%3D`
-    // url: 'https://analyticspathway.blob.core.windows.net/userupload?sp=r&st=2021-12-27T22:17:32Z&se=2021-12-28T06:17:32Z&spr=https&sv=2020-08-04&sr=c&sig=7q0emT%2F8WP8%2FQajKWk1yoeiKsX6fuyCa44L33WeoIP8%3D'
-    // url: 'https://analyticspathway.blob.core.windows.net/userupload?sv=2018-03-28&se=2021-12-27T23%3A13%3A58Z&sr=b&sp=c&sig=O8CzOAq3AWU3FQ2dYN%2Bo%2FU3PwhOHTDG80vILh5l3Rf4%3D'
+    sasQuery: sasQuery.toString(),
+    url: url_to_use
   });
   console.log('SASQ: ', sasQuery.toString());
-  console.log('URL: ', `https://${AZURE_STORAGE_ACCOUNT_NAME}.blob.core.windows.net/userupload`);
+  console.log('URL: ',url_to_use);
 };
